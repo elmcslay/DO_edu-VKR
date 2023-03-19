@@ -12,8 +12,8 @@ pipeline {
             steps {
                 //sh 'cd tf configs/build_tf/'
                 sh 'terraform -chdir=tf_configs/build_tf/ init'
-                sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
+                sh 'terraform -chdir=tf_configs/build_tf/ plan'
+                sh 'terraform -chdir=tf_configs/build_tf/ apply -auto-approve'
             }
         }
     }
