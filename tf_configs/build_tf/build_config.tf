@@ -38,7 +38,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/build_key.pub")}"
+    ssh-keys = "ubuntu:${file("/var/lib/jenkins/.ssh/build_key.pub")}"
   }
 
   scheduling_policy {
@@ -49,7 +49,7 @@ resource "yandex_compute_instance" "vm-1" {
   connection {
     type = "ssh"
     user = "ubuntu"
-    private_key = file("~/.ssh/build_key")
+    private_key = file("/var/lib/jenkins/.ssh/build_key")
     host = self.network_interface[0].nat_ip_address
   }
 
