@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        TF_CLI_CONFIG_FILE = credentials('yc_service_acc_secret')
-    }
+    //environment {
+    //    TF_CLI_CONFIG_FILE = credentials('yc_service_acc_secret')
+    //}
 
     stages {
         stage('get project') {
