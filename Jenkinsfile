@@ -11,9 +11,9 @@ pipeline {
         stage('test terraform run') {
             steps {
                 //sh 'cd tf configs/build_tf/'
-                sh 'terraform -chdir=tf_configs/build_tf/ init'
-                sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
+                sh 'sudo terraform -chdir=tf_configs/build_tf/ init'
+                sh 'sudo terraform plan'
+                sh 'sudo terraform apply -auto-approve'
             }
         }
     }
