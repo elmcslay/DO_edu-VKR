@@ -1,6 +1,6 @@
 ---
 - name: build state
-  host: build
+  hosts: build
   become: yes
 
   tasks:
