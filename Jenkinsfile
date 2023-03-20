@@ -23,7 +23,7 @@ pipeline {
 
         stage('test playbook run') {
             steps {
-                sh 'ansible-playbook -i /tmp/test1 --become-user=jenkins --private-key=~/.ssh/build_key ansbl/ansbl_build/build.yml'
+                sh 'ansible-playbook -i /tmp/test1 --become-user=ubuntu --private-key=~/.ssh/build_key ansbl/ansbl_build/build.yml'
             }
         }
     }
