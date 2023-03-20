@@ -20,5 +20,11 @@ pipeline {
                 sh 'terraform -chdir=tf_configs/build_tf/ apply -auto-approve'
             }
         }
+
+        stage('test playbook run') {
+            steps {
+                sh 'ansible-playbook -i /tmp/test1 ansbl/ansbl_build/build.yml'
+            }
+        }
     }
 }

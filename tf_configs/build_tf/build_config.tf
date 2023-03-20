@@ -60,6 +60,6 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   provisioner "local-exec" {
-    command = "sudo echo > /etc/ansible/hosts && sudo echo '[build]' > /etc/ansible/hosts && sudo echo ${self.network_interface[0].nat_ip_address} >> /etc/ansible/hosts"
+    command = "echo > /etc/test1 && echo '[build]' > /tmp/test1 && echo ${self.network_interface[0].nat_ip_address} >> /tmp/test1"
   }
 }
