@@ -60,6 +60,6 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   provisioner "local-exec" {
-    command = "echo > /etc/test1 && echo '[build]' > /tmp/test1 && echo ${self.network_interface[0].nat_ip_address} >> /tmp/test1"
+    command = "echo > /tmp/test1 && echo '[build]' > /tmp/test1 && echo ${self.network_interface[0].nat_ip_address} >> /tmp/test1"
   }
 }
