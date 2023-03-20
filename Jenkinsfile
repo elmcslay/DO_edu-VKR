@@ -23,7 +23,7 @@ pipeline {
 
         stage('test playbook run') {
             steps {
-                sh 'ansible-playbook -i /tmp/test1 ansbl/ansbl_build/build.yml'
+                sh 'ansible-playbook -i /tmp/test1 --become-user=jenkins ansbl/ansbl_build/build.yml'
             }
         }
     }
