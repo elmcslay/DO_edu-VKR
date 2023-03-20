@@ -1,0 +1,37 @@
+---
+- name: build state
+  host: build
+  become: yes
+
+  tasks:
+  - name: check git
+    apt:
+      name: git
+      state: present
+  
+  - name: check jdk
+    apt:
+      name: default-jdk
+      state: present
+
+  - name: check maven
+    apt:
+      name: maven
+      state: present
+
+  - name: clone repo
+    git:
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /tmp/test-vkr
+      clone: yes
+
+  - name: check artifact is exists
+    stat:
+      path: /tmp/test-vkr/target/hello-1.0.war
+    register: result
+
+  - name: create artifact, if it does not exist
+    shell: mvn package
+    args:
+      chdir: /tmp/test-vkr
+    when: not result.stat.exists 
