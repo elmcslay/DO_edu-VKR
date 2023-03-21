@@ -15,7 +15,7 @@ pipeline {
         stage('add yc-token env var') {
             steps {
                 script {
-                    YC_TOKEN= sh "(yc iam create-token)"
+                    YC_TOKEN = sh "(yc iam create-token)"
                 }
             }
         }
