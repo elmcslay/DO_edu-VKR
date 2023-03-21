@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        YC_TOKEN = ${sh ('yc iam create-token')}
+        YC_TOKEN = sh 'yc iam create-token'
     }
 
     stages {
