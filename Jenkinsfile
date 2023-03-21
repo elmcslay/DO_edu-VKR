@@ -1,14 +1,20 @@
 pipeline {
     agent any
-
+/*
     environment {
         YC_TOKEN = sh 'yc iam create-token'
     }
-
+*/
     stages {
         stage('get project') {
             steps {
                 git 'https://github.com/elmcslay/DO_edu-VKR.git'
+            }
+        }
+
+        stage('add yc-token env var') {
+            steps {
+                sh 'export YC_TOKEN=$(yc iam create-token)'
             }
         }
 
