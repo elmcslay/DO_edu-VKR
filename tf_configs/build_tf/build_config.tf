@@ -7,12 +7,14 @@ terraform {
   required_version = ">= 0.13"
 }
 
+/*
 provider "yandex" {
   service_account_key_file = "${file("/var/lib/jenkins/scrts/key.json")}"
   zone = "ru-central1-b"
   cloud_id = "b1g8au9em58afkdtkahm"
   folder_id = "b1go28jbjr6v23i268qj"
 }
+*/
 
 resource "yandex_compute_instance" "vm-1" {
   name = "build-vm"
@@ -45,7 +47,7 @@ resource "yandex_compute_instance" "vm-1" {
     preemptible = true
   }
 
-
+  /*
   connection {
     type = "ssh"
     user = "ubuntu"
@@ -62,4 +64,5 @@ resource "yandex_compute_instance" "vm-1" {
   provisioner "local-exec" {
     command = "echo > /tmp/test1 && echo '[build]' > /tmp/test1 && echo ${self.network_interface[0].nat_ip_address} >> /tmp/test1"
   }
+  */
 }
