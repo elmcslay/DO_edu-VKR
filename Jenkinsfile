@@ -9,17 +9,15 @@ pipeline {
         stage('get project') {
             steps {
                 git 'https://github.com/elmcslay/DO_edu-VKR.git'
-                sh 'echo $YC_TOKEN'
             }
         }
 
         stage('add yc-token env var') {
             steps {
-                script {
                     //export YC_TOKEN=$(yc iam create-token)
                     //YC_TOKEN = sh "(uname -a)"
-                    sh 'echo $YC_TOKEN'
-                }
+                sh 'echo $YC_TOKEN'
+                sh 'whoami'
             }
         }
 
