@@ -21,7 +21,7 @@
 
   - name: clone repo
     git:
-      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      repo: https://github.com/elmcslay/DO_edu-VKR-prjct.git
       dest: /tmp/test-vkr
       clone: yes
 
@@ -35,3 +35,11 @@
     args:
       chdir: /tmp/test-vkr
     when: not result.stat.exists 
+
+  - name: Build image and with build args
+    community.docker.docker_image:
+      name: myimage
+      build:
+        path: target/
+      tag: 1.0
+      source: build
